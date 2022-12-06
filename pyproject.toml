@@ -1,9 +1,9 @@
 [tool.pdm]
 
 [project]
-name = ""
-version = ""
-description = ""
+name = "discord-music-link"
+version = "0.1.0"
+description = "A Discord bot that responds to music links with more music links"
 authors = [
     {name = "platipus25", email = "40722163+platipus25@users.noreply.github.com"},
 ]
