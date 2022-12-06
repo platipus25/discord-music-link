@@ -1,0 +1,19 @@
+[tool.pdm]
+
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "platipus25", email = "40722163+platipus25@users.noreply.github.com"},
+]
+dependencies = [
+    "discord.py>=2.1.0",
+    "spotipy>=2.21.0",
+    "apple-music-python>=1.0.5",
+    "ytmusicapi>=0.24.1",
+    "python-dotenv>=0.21.0",
+    "requests>=2.28.1",
+]
+requires-python = ">=3.9"
+license = {text = "MIT"}
