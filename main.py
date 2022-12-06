@@ -1,5 +1,4 @@
 import discord
-import applemusicpy
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from ytmusicapi import YTMusic
@@ -7,10 +6,7 @@ from dotenv import load_dotenv
 import requests
 import os
 import urllib.parse
-import json
 import logging
-import traceback
-import sys
 
 class iTunes():
     ENDPOINT_URL = "https://itunes.apple.com/search"
@@ -95,10 +91,10 @@ def find_track(url):
     return results[0] if results else None
 
 def find_others(result):
-    query_string = f"{result['album']} {result['title']} by {result['artist']}"
+    query_string = f"{result['title']} by {result['artist']}"
 
-    result = spotify.search(q=query_string)['tracks']['items']
-    spotify_result = parse_spotify(result)
+    tracks = spotify.search(q=query_string)['tracks']['items']
+    spotify_result = parse_spotify(tracks)
     spotify_url = spotify_result[0]['url'] if spotify_result else None
 
     body = yt.search(query_string)
@@ -126,18 +122,17 @@ class MusicLinkClient(discord.Client):
             results = find_track(url)
 
             if results:
-                logging.info(results)
+                print(results)
                 
                 async with message.channel.typing():
 
                     spotify_url, youtube_url, apple_music_url = find_others(results)
 
-                    response = f"""
-                    Found {results['title']} by {results['artist']} from their album {results['album']} 
+                    response = f"""Found {results['title']} by {results['artist']} from their album {results['album']} 
 {spotify_url or "Couldn't find on Spotify"}
 {youtube_url or "Couldn't find on YouTube"}
 {apple_music_url or "Couldn't find on Apple Music"}
-                    """
+"""
 
                     print(response)
 
