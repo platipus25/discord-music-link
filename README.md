@@ -5,12 +5,12 @@ Anyone can paste a link to a song from any supported platform and it will be aut
 
 It currently supports Spotify, YouTube Music, YouTube, and Apple Music
 
-# API keys
+## API keys
 It uses unauthenticated apis for YouTube Music and Apple Music, but requires api keys for Spotify and Discord.
 
 You can find instructions for getting credentials from [Spotipy](https://spotipy.readthedocs.io/en/2.21.0/#getting-started) and [discordpy](https://discordpy.readthedocs.io/en/stable/discord.html)
 
-# Usage
+## Usage
 
 Create a .env file in the root of the repository that looks like this:
 ```
