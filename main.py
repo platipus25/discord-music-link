@@ -70,7 +70,7 @@ def parse_youtube(body):
             "artist": ", ".join(artist["name"] for artist in result["artists"]),
         }
         for result in body
-        if result["resultType"] == "song"
+        if result["resultType"] == "song" or result["resultType"] == "video"
     ]
 
     return results
@@ -150,7 +150,7 @@ class MusicLinkClient(discord.Client):
 
                     spotify_url, youtube_url, apple_music_url = find_others(results)
 
-                    response = f"""Found {results['title']} by {results['artist']} from their album {results['album']} 
+                    response = f"""Found {results['title']} by {results['artist']} from their album {results['album']}
 {spotify_url or "Couldn't find on Spotify"}
 {youtube_url or "Couldn't find on YouTube"}
 {apple_music_url or "Couldn't find on Apple Music"}
